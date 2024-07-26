@@ -8,8 +8,14 @@ const nextConfig = {
                 port: "",
                 pathname: "/**",
             },
+            {
+                protocol: "https",
+                hostname: "utfs.io",
+                port: "",
+                pathname: "/f/**",
+            },
         ],
     },
+    reactStrictMode: false,
 };
-
 export default nextConfig;

@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import "./globals.css";
-import Sidebar from "@/components/layout/Sidebar";
 import { ClerkProvider } from "@clerk/nextjs";
 import { ThemeProvider } from "@/components/common/ThemeProvider";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const manrope = Manrope({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -27,6 +28,12 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             {children}
+            <ToastContainer
+              autoClose={2000}
+              bodyClassName="text-sm font-medium"
+              position="top-right"
+            />
+            <ToastContainer />
           </ThemeProvider>
         </body>
       </html>

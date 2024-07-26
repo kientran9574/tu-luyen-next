@@ -28,19 +28,18 @@ export async function POST(req: Request) {
   } catch (err) {
     return new Response("Bad Request", { status: 400 });
   }
-
   const evenType = msg.type;
   if (evenType === "user.created") {
     const { id, email_addresses, image_url, username } = msg.data;
     const user = await createUser({
       clerkId: id,
-      name: username!,
       username: username!,
+      name: username!,
       email: email_addresses[0].email_address,
       avatar: image_url,
     });
     return NextResponse.json({
-      message: "ok",
+      message: "OK",
       user,
     });
   }
